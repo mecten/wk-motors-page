@@ -17,7 +17,8 @@ export default function Workshop() {
       <div className="relative h-[50vh] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1800&q=80"
-          alt="WK Motors Werkstatt"
+          alt="WK Motors Werkstatt von innen"
+          loading="lazy"
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-transparent to-[#080808]" />

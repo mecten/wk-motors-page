@@ -26,7 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${barlowCondensed.variable} ${barlow.variable} scroll-smooth`}>
-      <body className="bg-[#080808] text-white antialiased">{children}</body>
+      <body className="bg-[#080808] text-white antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#e30000] focus:text-white focus:text-sm focus:font-bold"
+        >
+          Zum Inhalt springen
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

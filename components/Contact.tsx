@@ -80,50 +80,64 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="block border border-white/5 hover:border-[#e30000]/30 transition-colors overflow-hidden"
+              aria-label="WK Motors auf Google Maps öffnen"
             >
               <img
                 src="https://wk-motors.de/wp-content/uploads/2023/12/Wk_Motors_Google_Maps.jpg"
-                alt="WK Motors Standort"
+                alt="Kartenausschnitt mit dem Standort von WK Motors in Friedrichsdorf"
+                loading="lazy"
                 className="w-full h-48 object-cover opacity-70 hover:opacity-100 transition-opacity"
               />
             </a>
           </div>
 
           {/* Contact Form */}
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()} aria-label="Kontaktformular" noValidate>
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-xs tracking-widest uppercase text-zinc-600 block mb-2">Name *</label>
+                <label htmlFor="contact-name" className="text-xs tracking-widest uppercase text-zinc-500 block mb-2">
+                  Name <span aria-hidden="true" className="text-[#e30000]">*</span>
+                </label>
                 <input
+                  id="contact-name"
                   type="text"
                   required
-                  className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#e30000] transition-colors"
+                  aria-required="true"
+                  autoComplete="name"
+                  className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-base focus:outline-none focus:border-[#e30000] focus:ring-1 focus:ring-[#e30000]/50 transition-colors"
                   placeholder="Ihr Name"
                 />
               </div>
               <div>
-                <label className="text-xs tracking-widest uppercase text-zinc-600 block mb-2">E-Mail *</label>
+                <label htmlFor="contact-email" className="text-xs tracking-widest uppercase text-zinc-500 block mb-2">
+                  E-Mail <span aria-hidden="true" className="text-[#e30000]">*</span>
+                </label>
                 <input
+                  id="contact-email"
                   type="email"
                   required
-                  className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#e30000] transition-colors"
+                  aria-required="true"
+                  autoComplete="email"
+                  className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-base focus:outline-none focus:border-[#e30000] focus:ring-1 focus:ring-[#e30000]/50 transition-colors"
                   placeholder="ihre@email.de"
                 />
               </div>
             </div>
             <div>
-              <label className="text-xs tracking-widest uppercase text-zinc-600 block mb-2">Betreff</label>
+              <label htmlFor="contact-subject" className="text-xs tracking-widest uppercase text-zinc-500 block mb-2">Betreff</label>
               <input
+                id="contact-subject"
                 type="text"
-                className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#e30000] transition-colors"
+                className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-base focus:outline-none focus:border-[#e30000] focus:ring-1 focus:ring-[#e30000]/50 transition-colors"
                 placeholder="Worum geht es?"
               />
             </div>
             <div>
-              <label className="text-xs tracking-widest uppercase text-zinc-600 block mb-2">Nachricht</label>
+              <label htmlFor="contact-message" className="text-xs tracking-widest uppercase text-zinc-500 block mb-2">Nachricht</label>
               <textarea
+                id="contact-message"
                 rows={5}
-                className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#e30000] transition-colors resize-none"
+                className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-base focus:outline-none focus:border-[#e30000] focus:ring-1 focus:ring-[#e30000]/50 transition-colors resize-none"
                 placeholder="Ihre Nachricht..."
               />
             </div>
@@ -132,7 +146,7 @@ export default function Contact() {
             </p>
             <button
               type="submit"
-              className="w-full py-4 bg-[#e30000] text-white font-bold tracking-widest uppercase text-sm hover:bg-red-700 transition-colors"
+              className="w-full py-4 min-h-[52px] bg-[#e30000] text-white font-bold tracking-widest uppercase text-sm hover:bg-red-700 active:scale-[0.98] transition-all"
             >
               Nachricht senden
             </button>

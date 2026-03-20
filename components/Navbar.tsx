@@ -21,6 +21,7 @@ export default function Navbar() {
 
   return (
     <header
+      role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-[#080808]/95 backdrop-blur-md border-b border-white/5"
@@ -44,7 +45,7 @@ export default function Navbar() {
           />
         </a>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav aria-label="Hauptnavigation" className="hidden md:flex items-center gap-10">
           {links.map((l) => (
             <a
               key={l.href}
@@ -62,7 +63,13 @@ export default function Navbar() {
           </a>
         </nav>
 
-        <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
+        <button
+          className="md:hidden p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Menü schließen" : "Menü öffnen"}
+        >
           <div className="space-y-1.5">
             <span className={`block h-px w-6 bg-white transition-all ${open ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`block h-px w-6 bg-white transition-all ${open ? "opacity-0" : ""}`} />
@@ -72,7 +79,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#080808]/98 border-t border-white/5 px-8 py-8 flex flex-col gap-6">
+        <div id="mobile-menu" className="md:hidden bg-[#080808]/98 border-t border-white/5 px-8 py-8 flex flex-col gap-6">
           {links.map((l) => (
             <a
               key={l.href}

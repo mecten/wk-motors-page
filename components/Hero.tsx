@@ -6,6 +6,8 @@ export default function Hero() {
         <img
           src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80"
           alt=""
+          role="presentation"
+          fetchPriority="high"
           className="w-full h-full object-cover opacity-15"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black via-black/80 to-transparent" />
